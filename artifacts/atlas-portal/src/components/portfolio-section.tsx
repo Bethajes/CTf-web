@@ -31,8 +31,8 @@ export function PortfolioSection() {
               Expanding the University Management Ecosystem
             </h3>
           </div>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            {additionalSolutions.map((solution, index) => (
+          <div className="mt-10 grid gap-5 sm:grid-cols-3">
+            {additionalSolutions.slice(0, 3).map((solution, index) => (
               <SolutionCard key={solution.title} solution={solution} index={index} />
             ))}
           </div>
