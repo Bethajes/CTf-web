@@ -42,10 +42,10 @@ export default function ContactPage() {
               {/* Map Container */}
               <div className="relative aspect-[16/10] w-full overflow-hidden rounded-md border border-white/10 bg-neutral-900">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.1547623954352!2d38.78547087485852!3d9.012652891048058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b850d4bb1ac49%3A0xb0c90b76a68bbbd7!2zTG90dXMgQnVpbGRpbmcgMjIgfCAyMiB8IGhheWFodWxldCB8IOGIjuGJsOGItSDhiIXhipXhjYMgMjIgfCDhiIPhi6vhiIHhiIjhibU!5e1!3m2!1sen!2set!4v1782028949755!5m2!1sen!2set" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"                  width="100%"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.1547623954352!2d38.78547087485852!3d9.012652891048058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b850d4bb1ac49%3A0xb0c90b76a68bbbd7!2zTG90dXMgQnVpbGRpbmcgMjIgfCAyMiB8IGhheWFodWxldCB8IOGIjuGJsOGItSDhiIXhipXhjYMgMjIgfCDhiIPhi6vhiIHhiIjhibU!5e1!3m2!1sen!2set!4v1782028949755!5m2!1sen!2set"
+                  width="100%"
                   height="100%"
                   style={{ border: 0 }}
-                  allowFullScreen={false}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="absolute inset-0 h-full w-full opacity-70 grayscale invert contrast-[95%] brightness-[75%] transition-opacity duration-300 hover:opacity-95"

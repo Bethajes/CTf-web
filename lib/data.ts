@@ -1,4 +1,5 @@
-import { Activity, ChartBar as BarChart3, Bot, BrainCircuit, Building2, CircleCheck as CheckCircle2, ChevronRight, CloudCog, Code as Code2, Cpu, Database, Factory, FileCheck, Fingerprint, FlaskConical, GraduationCap, HeartPulse, Landmark, Layers as Layers3, Library, ChartLine as LineChart, LockKeyhole, Video as LucideIcon, Monitor, Network, Rocket, School, ShieldCheck, ShoppingBag, Smartphone, Sparkles, Truck, UsersRound, Wallet } from "lucide-react";
+import { Activity, ChartBar as BarChart3, Bot, BrainCircuit, Building2, CircleCheck as CheckCircle2, ChevronRight, CloudCog, Code as Code2, Cpu, Database, Factory, FileCheck, Fingerprint, FlaskConical, GraduationCap, HeartPulse, Landmark, Layers as Layers3, Library, ChartLine as LineChart, LockKeyhole, Monitor, Network, Rocket, School, ShieldCheck, ShoppingBag, Smartphone, Sparkles, Truck, UsersRound, Wallet } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 const iconMap: Record<string, LucideIcon> = {
   Activity,
