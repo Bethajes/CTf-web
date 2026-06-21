@@ -1,59 +1,21 @@
-import {
-  ArrowRight,
-  Cpu,
-  Globe2,
-  LockKeyhole,
-  Sparkles,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { HeroSection } from "@/components/hero-section";
+import { ServiceCard } from "@/components/service-card";
+import { IndustryCard } from "@/components/industry-card";
+import { PortfolioSection } from "@/components/portfolio-section";
+import { TimelineSection } from "@/components/timeline-section";
+import { ExpertiseSection } from "@/components/expertise-section";
+import { TechSection } from "@/components/tech-section";
+import { ProcessSection } from "@/components/process-section";
+import { FinalCta } from "@/components/final-cta";
 import { AnimatedSection } from "@/components/animated-section";
-import { ButtonLink } from "@/components/button-link";
-import { CtaBanner } from "@/components/cta-banner";
-import { DashboardMockup } from "@/components/dashboard-mockup";
-import { FeatureCard } from "@/components/feature-card";
 import { TestimonialCard } from "@/components/testimonial-card";
-import {
-  clientLogos,
-  industries,
-  metrics,
-  processSteps,
-  products,
-  qualitySignals,
-  reasons,
-  services,
-  techStack,
-  testimonials,
-} from "@/lib/data";
+import { clientLogos, metrics, services, industries, testimonials, reasons, getIcon } from "@/lib/data";
+import { LockKeyhole, Cpu, Globe as Globe2 } from "lucide-react";
 
 export default function Home() {
   return (
     <>
-      <section className="subtle-grid relative overflow-hidden bg-black py-20 text-white lg:py-28">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/80 to-transparent" />
-        <div className="section-shell">
-          <div className="mx-auto max-w-5xl text-center">
-            <div className="mx-auto mb-5 inline-flex items-center gap-2 rounded-md border border-cyan-300/20 bg-cyan-400/10 px-3 py-2 text-xs font-bold text-cyan-200 shadow-[0_0_28px_rgba(6,182,212,0.2)]">
-              <Sparkles className="h-4 w-4" />
-              Engineering the Future Through Software
-            </div>
-            <h1 className="text-4xl font-black text-white sm:text-6xl lg:text-7xl">
-              Global software engineering for companies building what comes next.
-            </h1>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-              Create Future Technologies designs, builds, and scales enterprise platforms, AI systems, cloud infrastructure, mobile applications, and digital products for ambitious organizations.
-            </p>
-            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-              <ButtonLink href="/contact">Schedule Consultation</ButtonLink>
-              <ButtonLink href="#products" variant="secondary">
-                Explore Products
-              </ButtonLink>
-            </div>
-          </div>
-          <div className="mt-16">
-            <DashboardMockup />
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       <AnimatedSection className="border-y border-white/10 bg-neutral-950 py-14 text-white">
         <div className="section-shell">
@@ -61,7 +23,7 @@ export default function Home() {
             <div>
               <p className="text-sm font-bold uppercase text-cyan-300">Trusted by future-focused teams</p>
               <p className="mt-3 max-w-xl text-sm leading-6 text-slate-400">
-                Placeholder partner marks and operating metrics for a company built to serve enterprise, startup, public-sector, and education teams.
+                Partner marks and operating metrics for a company built to serve enterprise, startup, public-sector, and education teams.
               </p>
             </div>
             <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-6">
@@ -83,104 +45,66 @@ export default function Home() {
         </div>
       </AnimatedSection>
 
-      <AnimatedSection id="services" className="bg-black py-20 text-white">
+      <section id="services" className="bg-black py-20 text-white">
         <div className="section-shell">
-          <SectionHeader eyebrow="Services" title="Software services for the modern enterprise" />
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
-              <FeatureCard key={service.title} {...service} />
-            ))}
-          </div>
-        </div>
-      </AnimatedSection>
-
-      <AnimatedSection id="products" className="bg-neutral-950 py-20 text-white">
-        <div className="section-shell">
-          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-            <SectionHeader align="left" eyebrow="Products" title="The Atlas portfolio is one part of a broader software company" />
-            <p className="max-w-2xl text-sm leading-6 text-slate-400 lg:justify-self-end">
-              Atlas Portal remains a flagship education product, but CTF is structured as a full software solutions company with products for operations, revenue, intelligence, and AI automation.
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-bold uppercase text-cyan-300">Services</p>
+            <h2 className="mt-3 text-3xl font-black text-white sm:text-5xl">What We Build</h2>
+            <p className="mt-4 text-slate-400">
+              End-to-end software capabilities for organizations that demand quality.
             </p>
           </div>
-          <div className="mt-12 grid gap-5 lg:grid-cols-5">
-            {products.map((product) => (
-              <article key={product.name} className="rounded-md border border-white/10 bg-black p-5 transition hover:-translate-y-1 hover:border-cyan-300/40">
-                <p className="text-xs font-bold uppercase text-cyan-300">{product.signal}</p>
-                <h3 className="mt-4 text-xl font-black text-white">{product.name}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-400">{product.description}</p>
-                <div className="mt-6 flex items-center gap-2 text-sm font-bold text-cyan-200">
-                  Product system <ArrowRight className="h-4 w-4" />
-                </div>
-              </article>
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {services.map((service, index) => (
+              <ServiceCard key={service.title} {...service} index={index} />
             ))}
           </div>
         </div>
-      </AnimatedSection>
+      </section>
 
-      <AnimatedSection id="industries" className="bg-black py-20 text-white">
+      <PortfolioSection />
+
+      <section id="industries" className="bg-black py-20 text-white">
         <div className="section-shell">
-          <SectionHeader eyebrow="Industries" title="Built for organizations where software is mission-critical" />
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-7">
-            {industries.map(({ title, icon: Icon }) => (
-              <IconTile key={title} title={title} icon={Icon} />
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-bold uppercase text-cyan-300">Industries</p>
+            <h2 className="mt-3 text-3xl font-black text-white sm:text-5xl">Industries We Serve</h2>
+            <p className="mt-4 text-slate-400">
+              Deep domain expertise across sectors where software is mission-critical.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {industries.map((industry, index) => (
+              <IndustryCard key={industry.title} {...industry} index={index} />
             ))}
           </div>
         </div>
-      </AnimatedSection>
+      </section>
 
-      <AnimatedSection id="process" className="bg-neutral-950 py-20 text-white">
-        <div className="section-shell">
-          <SectionHeader eyebrow="Development process" title="From strategy to production with disciplined execution" />
-          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-6">
-            {processSteps.map((step, index) => (
-              <article key={step.title} className="rounded-md border border-white/10 bg-black p-5">
-                <div className="mb-5 grid h-10 w-10 place-items-center rounded-md border border-cyan-300/30 bg-cyan-400/10 text-sm font-black text-cyan-200">
-                  {index + 1}
-                </div>
-                <h3 className="font-black text-white">{step.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-400">{step.description}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </AnimatedSection>
+      <TimelineSection />
 
-      <AnimatedSection className="bg-black py-20 text-white">
-        <div className="section-shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-          <div>
-            <SectionHeader align="left" eyebrow="Technology stack" title="Modern tools for secure, scalable products" />
-            <div className="mt-8 grid gap-3">
-              {qualitySignals.map(({ label, icon: Icon }) => (
-                <div key={label} className="flex items-center gap-3 text-sm font-semibold text-slate-300">
-                  <Icon className="h-5 w-5 text-cyan-300" />
-                  {label}
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-3">
-            {techStack.map((tool) => (
-              <div key={tool} className="rounded-md border border-white/10 bg-white/[0.03] px-4 py-5 text-center text-sm font-black text-white">
-                {tool}
-              </div>
-            ))}
-          </div>
-        </div>
-      </AnimatedSection>
+      <ExpertiseSection />
+
+      <TechSection />
+
+      <ProcessSection />
 
       <AnimatedSection className="bg-neutral-950 py-20 text-white">
         <div className="section-shell">
           <SectionHeader eyebrow="Why choose CTF" title="Enterprise-grade thinking with product-speed execution" />
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-5">
-            {reasons.map(({ title, text, icon: Icon }) => (
-              <article key={title} className="rounded-md border border-white/10 bg-black p-6">
-                <div className="mb-5 grid h-12 w-12 place-items-center rounded-md bg-blue-500/10 text-cyan-200">
-                  <Icon className="h-6 w-6" />
-                </div>
-                <h3 className="font-black text-white">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-400">{text}</p>
-              </article>
-            ))}
+            {reasons.map(({ title, text, icon }) => {
+              const Icon = getIcon(icon);
+              return (
+                <article key={title} className="rounded-md border border-white/10 bg-black p-6">
+                  <div className="mb-5 grid h-12 w-12 place-items-center rounded-md bg-blue-500/10 text-cyan-200">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="font-black text-white">{title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-400">{text}</p>
+                </article>
+              );
+            })}
           </div>
         </div>
       </AnimatedSection>
@@ -195,7 +119,7 @@ export default function Home() {
               <Signal icon={Globe2} label="Global delivery" />
             </div>
           </div>
-          <DashboardMockup title="Atlas Portfolio Intelligence" />
+          <DashboardPreview />
         </div>
       </AnimatedSection>
 
@@ -210,7 +134,7 @@ export default function Home() {
         </div>
       </AnimatedSection>
 
-      <CtaBanner />
+      <FinalCta />
     </>
   );
 }
@@ -232,22 +156,36 @@ function SectionHeader({
   );
 }
 
-function IconTile({ title, icon: Icon }: { title: string; icon: LucideIcon }) {
-  return (
-    <article className="rounded-md border border-white/10 bg-white/[0.03] p-5 text-center transition hover:-translate-y-1 hover:border-cyan-300/40">
-      <div className="mx-auto mb-4 grid h-12 w-12 place-items-center rounded-md bg-cyan-400/10 text-cyan-200">
-        <Icon className="h-6 w-6" />
-      </div>
-      <h3 className="text-sm font-black text-white">{title}</h3>
-    </article>
-  );
-}
-
-function Signal({ icon: Icon, label }: { icon: LucideIcon; label: string }) {
+function Signal({ icon: Icon, label }: { icon: typeof LockKeyhole; label: string }) {
   return (
     <div className="rounded-md border border-white/10 bg-white/[0.03] p-4">
       <Icon className="h-5 w-5 text-cyan-300" />
       <p className="mt-3 text-sm font-bold text-slate-200">{label}</p>
+    </div>
+  );
+}
+
+function DashboardPreview() {
+  return (
+    <div className="relative mx-auto w-full max-w-lg rounded-lg border border-cyan-300/20 bg-neutral-950 p-3 shadow-[0_28px_90px_-36px_rgba(6,182,212,0.5)]">
+      <div className="absolute inset-0 rounded-lg bg-[linear-gradient(110deg,rgba(37,99,235,0.18),transparent_34%,rgba(6,182,212,0.12)_65%,transparent)]" />
+      <div className="relative rounded-md border border-white/10 bg-black/90 p-4">
+        <div className="mb-4 flex items-center justify-between border-b border-white/10 pb-4">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-cyan-300">Create Future Technologies</p>
+            <h3 className="text-base font-bold text-white">Atlas Portfolio Intelligence</h3>
+          </div>
+        </div>
+        <div className="grid gap-3">
+          <div className="h-24 rounded-md border border-white/10 bg-white/[0.04]" />
+          <div className="grid grid-cols-3 gap-3">
+            <div className="h-16 rounded-md border border-white/10 bg-white/[0.04]" />
+            <div className="h-16 rounded-md border border-white/10 bg-white/[0.04]" />
+            <div className="h-16 rounded-md border border-white/10 bg-white/[0.04]" />
+          </div>
+          <div className="h-20 rounded-md border border-white/10 bg-white/[0.04]" />
+        </div>
+      </div>
     </div>
   );
 }

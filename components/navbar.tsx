@@ -18,21 +18,21 @@ export function Navbar() {
           <span className="hidden sm:inline">CREATE FUTURE</span>
         </Link>
 
-        <div className="hidden items-center gap-1 lg:flex">
+        <div className="hidden items-center gap-1 xl:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-md px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/10 hover:text-white"
+              className="rounded-md px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/10 hover:text-white"
             >
               {item.label}
             </Link>
           ))}
         </div>
 
-        <div className="hidden items-center gap-2 lg:flex">
+        <div className="hidden items-center gap-2 xl:flex">
           <Link href="/contact" className="rounded-md border border-cyan-300/30 bg-cyan-400/10 px-4 py-2 text-sm font-semibold text-cyan-100 shadow-lg shadow-cyan-500/10 transition hover:bg-cyan-400/20">
-            Schedule Consultation
+            Book Consultation
           </Link>
         </div>
 
@@ -40,14 +40,14 @@ export function Navbar() {
           type="button"
           onClick={() => setOpen((value) => !value)}
           aria-label="Toggle menu"
-          className="grid h-10 w-10 place-items-center rounded-md border border-white/10 text-white lg:hidden"
+          className="grid h-10 w-10 place-items-center rounded-md border border-white/10 text-white xl:hidden"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </nav>
 
       {open ? (
-        <div className="section-shell pb-4 lg:hidden">
+        <div className="section-shell pb-4 xl:hidden">
           <div className="grid gap-1 rounded-md border border-white/10 bg-neutral-950/95 p-2 shadow-2xl">
             {navItems.map((item) => (
               <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-sm font-semibold text-slate-200 hover:bg-white/10">
@@ -55,7 +55,7 @@ export function Navbar() {
               </Link>
             ))}
             <Link href="/contact" onClick={() => setOpen(false)} className="rounded-md bg-primary px-3 py-3 text-sm font-semibold text-white">
-              Schedule Consultation
+              Book Consultation
             </Link>
           </div>
         </div>
