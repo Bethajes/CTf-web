@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 import { Sparkles, Users, Activity, Layers, ShieldCheck } from "lucide-react";
 import { ButtonLink } from "@/components/button-link";
+import { AnimatedCard } from "@/components/animated-card";
 
 const heroMetrics = [
   { value: 3000, display: "3,000+", label: "People Served Daily", icon: Users },
@@ -35,15 +36,22 @@ function AnimatedMetric({
   label,
   icon: Icon,
   delay,
+  index,
 }: {
   value: number;
   display: string;
   label: string;
   icon: typeof Users;
   delay: number;
+  index: number;
 }) {
-  const [visible, setVisible] = useState(false);
-  const count = useCountUp(value, 1600, visible);
+  const [started, setStarted] = useState(false);
+  const count = useCountUp(value, 1600, started);
+
+  useEffect(() => {
+    const t = setTimeout(() => setStarted(true), delay * 1000 + 400);
+    return () => clearTimeout(t);
+  }, [delay]);
 
   const isPercent = display.includes("%");
   const isPlus = display.includes("+");
@@ -57,21 +65,17 @@ function AnimatedMetric({
     : count.toString();
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
-      onAnimationComplete={() => setVisible(true)}
-      className="rounded-md border border-slate-200 bg-slate-50 p-5 text-center transition hover:border-cyan-400/40 hover:shadow-sm dark:border-white/10 dark:bg-white/[0.05] dark:hover:border-cyan-300/30"
-    >
-      <div className="mx-auto mb-3 grid h-10 w-10 place-items-center rounded-md bg-cyan-50 text-cyan-700 dark:bg-cyan-400/10 dark:text-cyan-200">
-        <Icon className="h-5 w-5" />
+    <AnimatedCard index={index} baseDelay={delay}>
+      <div className="rounded-md border border-slate-200 bg-slate-50 p-5 text-center dark:border-white/10 dark:bg-white/[0.05]">
+        <div className="mx-auto mb-3 grid h-10 w-10 place-items-center rounded-md bg-cyan-50 text-cyan-700 dark:bg-cyan-400/10 dark:text-cyan-200">
+          <Icon className="h-5 w-5" />
+        </div>
+        <div className="text-2xl font-black tabular-nums text-slate-900 dark:text-white">
+          {started ? formatted : "0"}
+        </div>
+        <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{label}</p>
       </div>
-      <div className="text-2xl font-black tabular-nums text-slate-900 dark:text-white">
-        {visible ? formatted : "0"}
-      </div>
-      <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{label}</p>
-    </motion.div>
+    </AnimatedCard>
   );
 }
 
@@ -216,7 +220,7 @@ export function HeroSection() {
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {heroMetrics.map((metric, i) => (
-            <AnimatedMetric key={metric.label} {...metric} delay={1.3 + i * 0.1} />
+            <AnimatedMetric key={metric.label} {...metric} index={i} delay={1.3 + i * 0.1} />
           ))}
         </div>
       </div>
