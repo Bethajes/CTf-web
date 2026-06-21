@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
+import { Providers } from "@/app/providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -9,14 +10,14 @@ export const metadata: Metadata = {
     template: "%s | Create Future Technologies",
   },
   description:
-    "Create Future Technologies is a global software solutions company building enterprise platforms, AI systems, cloud products, mobile apps, and the Atlas software portfolio.",
+    "Create Future Technologies is a global software solutions company building enterprise platforms, AI systems, cloud products, mobile apps, and the University Management software portfolio.",
   keywords: [
     "Create Future Technologies",
     "CTF software company",
     "Enterprise software development",
     "AI software solutions",
     "Cloud and DevOps services",
-    "Atlas Portal",
+    "University Management",
     "Custom software development",
   ],
   openGraph: {
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     locale: "en_US",
   },
   icons: {
-    icon: "/images/logo.png", // 👈 Or use your logo name like '/logo.png' if it's placed in the public/ folder
+    icon: "/images/logo.png",
   },
 };
 
@@ -34,11 +35,13 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <Providers>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

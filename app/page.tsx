@@ -9,7 +9,7 @@ import { ProcessSection } from "@/components/process-section";
 import { FinalCta } from "@/components/final-cta";
 import { AnimatedSection } from "@/components/animated-section";
 import { TestimonialCard } from "@/components/testimonial-card";
-import { clientLogos, metrics, services, industries, testimonials, reasons, getIcon } from "@/lib/data";
+import { clientLogos, services, industries, testimonials, reasons, getIcon } from "@/lib/data";
 import { LockKeyhole, Cpu, Globe as Globe2 } from "lucide-react";
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <HeroSection />
 
-      <AnimatedSection className="border-y border-white/10 bg-neutral-950 py-14 text-white">
+      <AnimatedSection className="border-y border-white/10 bg-neutral-950 py-14 text-white dark:text-white">
         <div className="section-shell">
           <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
             <div>
@@ -34,14 +34,6 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {metrics.map((metric) => (
-              <div key={metric.label} className="rounded-md border border-cyan-300/15 bg-cyan-400/[0.04] p-5">
-                <div className="text-3xl font-black text-white">{metric.value}</div>
-                <p className="mt-1 text-sm text-slate-400">{metric.label}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </AnimatedSection>
 
@@ -54,7 +46,7 @@ export default function Home() {
               End-to-end software capabilities for organizations that demand quality.
             </p>
           </div>
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {services.map((service, index) => (
               <ServiceCard key={service.title} {...service} index={index} />
             ))}

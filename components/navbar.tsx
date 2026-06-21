@@ -4,12 +4,13 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { navItems } from "@/lib/data";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur-xl dark:bg-black/80">
       <nav className="section-shell flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-3 font-black text-white" aria-label="Create Future Technologies home">
           <span className="grid h-9 w-9 place-items-center rounded-md border border-cyan-300/40 bg-cyan-400/10 text-cyan-200 shadow-[0_0_28px_rgba(6,182,212,0.35)]">
@@ -31,6 +32,7 @@ export function Navbar() {
         </div>
 
         <div className="hidden items-center gap-2 xl:flex">
+          <ThemeToggle />
           <Link href="/contact" className="rounded-md border border-cyan-300/30 bg-cyan-400/10 px-4 py-2 text-sm font-semibold text-cyan-100 shadow-lg shadow-cyan-500/10 transition hover:bg-cyan-400/20">
             Book Consultation
           </Link>

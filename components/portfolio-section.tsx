@@ -30,7 +30,7 @@ export function PortfolioSection() {
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-bold uppercase text-cyan-300">Solutions Under Development</p>
             <h3 className="mt-3 text-2xl font-black text-white sm:text-4xl">
-              Expanding the Atlas Ecosystem
+              Expanding the University Management Ecosystem
             </h3>
           </div>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
