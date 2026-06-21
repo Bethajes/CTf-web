@@ -17,18 +17,19 @@ export default function Home() {
     <>
       <HeroSection />
 
-      <AnimatedSection className="border-y border-white/10 bg-neutral-950 py-14 text-white dark:text-white">
+      {/* Logo / partner bar */}
+      <AnimatedSection className="border-y border-slate-200 bg-slate-50 py-14 dark:border-white/10 dark:bg-neutral-950">
         <div className="section-shell">
           <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
             <div>
-              <p className="text-sm font-bold uppercase text-cyan-300">Trusted by future-focused teams</p>
-              <p className="mt-3 max-w-xl text-sm leading-6 text-slate-400">
+              <p className="text-sm font-bold uppercase text-cyan-600 dark:text-cyan-300">Trusted by future-focused teams</p>
+              <p className="mt-3 max-w-xl text-sm leading-6 text-slate-500 dark:text-slate-400">
                 Partner marks and operating metrics for a company built to serve enterprise, startup, public-sector, and education teams.
               </p>
             </div>
             <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-6">
               {clientLogos.map((logo) => (
-                <div key={logo} className="grid h-16 place-items-center rounded-md border border-white/10 bg-white/[0.03] text-sm font-black text-slate-300">
+                <div key={logo} className="grid h-16 place-items-center rounded-md border border-slate-200 bg-white text-sm font-black text-slate-500 dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-300">
                   {logo}
                 </div>
               ))}
@@ -37,12 +38,13 @@ export default function Home() {
         </div>
       </AnimatedSection>
 
-      <section id="services" className="bg-black py-20 text-white">
+      {/* Services */}
+      <section id="services" className="bg-white py-20 dark:bg-black">
         <div className="section-shell">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-bold uppercase text-cyan-300">Services</p>
-            <h2 className="mt-3 text-3xl font-black text-white sm:text-5xl">What We Build</h2>
-            <p className="mt-4 text-slate-400">
+            <p className="text-sm font-bold uppercase text-cyan-600 dark:text-cyan-300">Services</p>
+            <h2 className="mt-3 text-3xl font-black text-slate-900 dark:text-white sm:text-5xl">What We Build</h2>
+            <p className="mt-4 text-slate-500 dark:text-slate-400">
               End-to-end software capabilities for organizations that demand quality.
             </p>
           </div>
@@ -56,12 +58,13 @@ export default function Home() {
 
       <PortfolioSection />
 
-      <section id="industries" className="bg-black py-20 text-white">
+      {/* Industries */}
+      <section id="industries" className="bg-white py-20 dark:bg-black">
         <div className="section-shell">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-bold uppercase text-cyan-300">Industries</p>
-            <h2 className="mt-3 text-3xl font-black text-white sm:text-5xl">Industries We Serve</h2>
-            <p className="mt-4 text-slate-400">
+            <p className="text-sm font-bold uppercase text-cyan-600 dark:text-cyan-300">Industries</p>
+            <h2 className="mt-3 text-3xl font-black text-slate-900 dark:text-white sm:text-5xl">Industries We Serve</h2>
+            <p className="mt-4 text-slate-500 dark:text-slate-400">
               Deep domain expertise across sectors where software is mission-critical.
             </p>
           </div>
@@ -78,19 +81,20 @@ export default function Home() {
       <TechSection />
       <ProcessSection />
 
-      <AnimatedSection className="bg-neutral-950 py-20 text-white">
+      {/* Why CTF */}
+      <AnimatedSection className="bg-slate-50 py-20 dark:bg-neutral-950">
         <div className="section-shell">
           <SectionHeader eyebrow="Why choose CTF" title="Enterprise-grade thinking with product-speed execution" />
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-5">
             {reasons.map(({ title, text, icon }) => {
               const Icon = getIcon(icon);
               return (
-                <article key={title} className="rounded-md border border-white/10 bg-black p-6">
-                  <div className="mb-5 grid h-12 w-12 place-items-center rounded-md bg-blue-500/10 text-cyan-200">
+                <article key={title} className="rounded-md border border-slate-200 bg-white p-6 dark:border-white/10 dark:bg-black">
+                  <div className="mb-5 grid h-12 w-12 place-items-center rounded-md bg-cyan-50 text-cyan-700 dark:bg-blue-500/10 dark:text-cyan-200">
                     <Icon className="h-6 w-6" />
                   </div>
-                  <h3 className="font-black text-white">{title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-400">{text}</p>
+                  <h3 className="font-black text-slate-900 dark:text-white">{title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-500 dark:text-slate-400">{text}</p>
                 </article>
               );
             })}
@@ -98,20 +102,20 @@ export default function Home() {
         </div>
       </AnimatedSection>
 
-      <AnimatedSection className="bg-black py-20 text-white">
+      {/* Enterprise UI signals */}
+      <AnimatedSection className="bg-white py-20 dark:bg-black">
         <div className="section-shell mx-auto max-w-3xl text-center">
-          <div>
-            <SectionHeader align="center" eyebrow="Enterprise UI" title="Animated statistics, secure architecture, and operational clarity" />
-            <div className="mt-8 grid gap-4 sm:grid-cols-3 text-left">
-              <Signal icon={LockKeyhole} label="Secure by design" />
-              <Signal icon={Cpu} label="AI-ready systems" />
-              <Signal icon={Globe} label="Global delivery" />
-            </div>
+          <SectionHeader align="center" eyebrow="Enterprise UI" title="Animated statistics, secure architecture, and operational clarity" />
+          <div className="mt-8 grid gap-4 sm:grid-cols-3 text-left">
+            <Signal icon={LockKeyhole} label="Secure by design" />
+            <Signal icon={Cpu} label="AI-ready systems" />
+            <Signal icon={Globe} label="Global delivery" />
           </div>
         </div>
       </AnimatedSection>
 
-      <AnimatedSection className="bg-neutral-950 py-20 text-white">
+      {/* Testimonials */}
+      <AnimatedSection className="bg-slate-50 py-20 dark:bg-neutral-950">
         <div className="section-shell">
           <SectionHeader eyebrow="Testimonials" title="Trusted by leaders building serious software" />
           <div className="mt-12 grid gap-5 md:grid-cols-3">
@@ -138,17 +142,17 @@ function SectionHeader({
 }) {
   return (
     <div className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-2xl"}>
-      <p className="text-sm font-bold uppercase text-cyan-300">{eyebrow}</p>
-      <h2 className="mt-3 text-3xl font-black text-white sm:text-5xl">{title}</h2>
+      <p className="text-sm font-bold uppercase text-cyan-600 dark:text-cyan-300">{eyebrow}</p>
+      <h2 className="mt-3 text-3xl font-black text-slate-900 dark:text-white sm:text-5xl">{title}</h2>
     </div>
   );
 }
 
 function Signal({ icon: Icon, label }: { icon: typeof LockKeyhole; label: string }) {
   return (
-    <div className="rounded-md border border-white/10 bg-white/[0.03] p-4">
-      <Icon className="h-5 w-5 text-cyan-300" />
-      <p className="mt-3 text-sm font-bold text-slate-200">{label}</p>
+    <div className="rounded-md border border-slate-200 bg-slate-50 p-4 dark:border-white/10 dark:bg-white/[0.03]">
+      <Icon className="h-5 w-5 text-cyan-600 dark:text-cyan-300" />
+      <p className="mt-3 text-sm font-bold text-slate-700 dark:text-slate-200">{label}</p>
     </div>
   );
 }

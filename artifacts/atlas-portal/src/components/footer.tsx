@@ -5,7 +5,7 @@ import { navItems } from "@/lib/data";
 export function Footer() {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="border-t border-white/10 bg-black py-12 text-white">
+    <footer className="border-t border-slate-200 bg-slate-900 py-12 text-white dark:border-white/10 dark:bg-black">
       <div className="section-shell grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
           <div className="mb-4 flex items-center gap-3 font-black">

@@ -13,7 +13,7 @@ const heroMetrics = [
 
 export function HeroSection() {
   return (
-    <section className="subtle-grid relative overflow-hidden bg-black py-20 text-white lg:py-28">
+    <section className="subtle-grid relative overflow-hidden bg-slate-950 py-20 text-white lg:py-28 dark:bg-black">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/80 to-transparent" />
       <div className="section-shell">
         <div className="mx-auto max-w-5xl text-center">
@@ -76,7 +76,7 @@ export function HeroSection() {
           {heroMetrics.map((metric) => (
             <div
               key={metric.label}
-              className="rounded-md border border-white/10 bg-white/[0.03] p-5 text-center transition hover:border-cyan-300/30"
+              className="rounded-md border border-white/10 bg-white/[0.05] p-5 text-center transition hover:border-cyan-300/30"
             >
               <div className="mx-auto mb-3 grid h-10 w-10 place-items-center rounded-md bg-cyan-400/10 text-cyan-200">
                 <metric.icon className="h-5 w-5" />

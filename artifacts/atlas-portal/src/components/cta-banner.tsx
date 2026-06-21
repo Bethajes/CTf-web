@@ -2,7 +2,7 @@ import { ButtonLink } from "@/components/button-link";
 
 export function CtaBanner() {
   return (
-    <section className="relative overflow-hidden bg-black py-24 text-white">
+    <section className="relative overflow-hidden bg-slate-900 py-24 text-white dark:bg-black">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/70 to-transparent" />
       <div className="section-shell text-center">
         <p className="text-sm font-bold uppercase tracking-wide text-accent">Build with CTF</p>
