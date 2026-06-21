@@ -377,6 +377,7 @@ export const qualitySignals = [
 export type PortfolioProject = {
   title: string;
   description: string;
+  image?: string[]; // 👈 Add this line (the '?' means it's optional, so older projects won't break)
   features: string[];
   benefits: string[];
   badge?: string;
@@ -388,7 +389,8 @@ export const featuredProjects: PortfolioProject[] = [
     title: "AASTU Digital Clearance Management System",
     description:
       "A web-based platform that digitizes the student clearance process across multiple departments.",
-    features: [
+          image: ["/images/c1.png","/images/c2.png","/images/c3.png","/images/c4.png"], // 👈 Add this path
+      features: [
       "Multi-department approval workflow",
       "Student self-service portal",
       "Real-time clearance tracking",
@@ -410,7 +412,8 @@ export const featuredProjects: PortfolioProject[] = [
     title: "AASTU Laptop Security and Asset Management System",
     description:
       "A centralized platform for managing university-issued laptops and technology assets.",
-    features: [
+          image: ["/images/l1.png","/images/l3.png","/images/lap2.png","/images/l4.png"], // 👈 Add this path
+      features: [
       "Asset registration",
       "Assignment tracking",
       "Check-in/check-out workflows",
@@ -432,6 +435,7 @@ export const featuredProjects: PortfolioProject[] = [
     title: "University Management System",
     description:
       "An end-to-end platform managing the complete academic and administrative lifecycle of a college.",
+          image: ["/images/u1.png","/images/u3.png","/images/u2.png","/images/u4.png"], // 👈 Add this path
     features: [
       "Admissions",
       "Student Information System",

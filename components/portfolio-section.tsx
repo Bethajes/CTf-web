@@ -1,8 +1,10 @@
 "use client";
 
+import React from "react"; 
 import { motion } from "framer-motion";
 import { CircleCheck as CheckCircle2 } from "lucide-react";
 import { featuredProjects, additionalSolutions, getIcon } from "@/lib/data";
+import Image from 'next/image'; 
 
 export function PortfolioSection() {
   return (
@@ -49,6 +51,7 @@ function FeaturedProjectCard({
   project: {
     title: string;
     description: string;
+    image?: string[]; 
     features: string[];
     benefits: string[];
     badge?: string;
@@ -57,6 +60,12 @@ function FeaturedProjectCard({
   index: number;
 }) {
   const Icon = getIcon(project.icon);
+
+  // If there's only 1 image, duplicate it to keep the track moving, otherwise use what we have
+  const imagesTrack = project.image && project.image.length > 0 
+    ? [...project.image, ...project.image, ...project.image] // Tripling the array creates a long seamless train loop
+    : [];
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 28 }}
@@ -117,16 +126,52 @@ function FeaturedProjectCard({
                 <div className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
                 <span className="ml-2 text-xs text-slate-500">Dashboard Preview</span>
               </div>
-              <div className="grid gap-3">
-                <div className="h-24 rounded-md border border-white/10 bg-white/[0.04]" />
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="h-16 rounded-md border border-white/10 bg-white/[0.04]" />
-                  <div className="h-16 rounded-md border border-white/10 bg-white/[0.04]" />
-                  <div className="h-16 rounded-md border border-white/10 bg-white/[0.04]" />
-                </div>
-                <div className="h-20 rounded-md border border-white/10 bg-white/[0.04]" />
+              
+              {/* Outer container masks the train images outside this box boundary */}
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-md border border-white/10 bg-white/[0.02]">
+                {imagesTrack.length > 0 ? (
+                  /* The Train Track layout */
+                  <motion.div 
+                    className="flex h-full w-max"
+                    animate={{ x: ["0%", "-33.33%"] }} // Loops seamlessly past the first set of identical pictures
+                    transition={{
+                      ease: "linear",   // 👈 Linear guarantees a perfectly continuous smooth pacing without stopping
+                      duration: 10,     // 👈 Speed of the train track (lower is faster)
+                      repeat: Infinity, // Loops infinitely
+                    }}
+                  >
+                    {imagesTrack.map((imgUrl, imgIdx) => (
+                      <div 
+                        key={imgIdx} 
+                        className="relative h-full aspect-[16/10] shrink-0"
+                        style={{ width: "352px" }} // Explicit layout lock ensures the fluid images line up tight like train cars
+                      >
+                        <Image
+                          src={imgUrl}
+                          alt="Live Showcase Stream"
+                          fill
+                          className="object-cover object-top p-0.5 rounded-md"
+                          sizes="352px"
+                          priority={index === 0 && imgIdx < 2}
+                        />
+                      </div>
+                    ))}
+                  </motion.div>
+                ) : (
+                  /* Fallback skeleton grid structure if no image link is present */
+                  <div className="grid h-full p-3 gap-3">
+                    <div className="h-12 rounded bg-white/[0.03]" />
+                    <div className="grid grid-cols-3 gap-2">
+                      <div className="h-10 rounded bg-white/[0.03]" />
+                      <div className="h-10 rounded bg-white/[0.03]" />
+                      <div className="h-10 rounded bg-white/[0.03]" />
+                    </div>
+                    <div className="h-10 rounded bg-white/[0.03]" />
+                  </div>
+                )}
               </div>
             </div>
+            
             <motion.div
               className="absolute -right-4 -top-4 hidden rounded-lg border border-cyan-300/20 bg-black p-3 shadow-xl sm:block"
               animate={{ y: [0, -6, 0] }}

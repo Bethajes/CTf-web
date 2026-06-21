@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
   },
+  icons: {
+    icon: "/images/logo.png", // 👈 Or use your logo name like '/logo.png' if it's placed in the public/ folder
+  },
 };
 
 export default function RootLayout({
