@@ -108,18 +108,17 @@ export default function Home() {
           </div>
         </div>
       </AnimatedSection>
-
-      <AnimatedSection className="bg-black py-20 text-white">
-        <div className="section-shell grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+<AnimatedSection className="bg-black py-20 text-white">
+        {/* Changed grid layout to a max-w-3xl centered container */}
+        <div className="section-shell mx-auto max-w-3xl text-center">
           <div>
-            <SectionHeader align="left" eyebrow="Enterprise UI" title="Animated statistics, secure architecture, and operational clarity" />
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            <SectionHeader align="center" eyebrow="Enterprise UI" title="Animated statistics, secure architecture, and operational clarity" />
+            <div className="mt-8 grid gap-4 sm:grid-cols-3 text-left">
               <Signal icon={LockKeyhole} label="Secure by design" />
               <Signal icon={Cpu} label="AI-ready systems" />
               <Signal icon={Globe2} label="Global delivery" />
             </div>
           </div>
-          <DashboardPreview />
         </div>
       </AnimatedSection>
 

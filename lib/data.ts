@@ -322,7 +322,7 @@ export const testimonials = [
 ];
 
 export const metrics = [
-  { value: "18,000+", label: "People Served Daily" },
+  { value: "3,000+", label: "People Served Daily" },
   { value: "99.97%", label: "System Availability" },
   { value: "14", label: "Enterprise Solutions" },
   { value: "100%", label: "Client Satisfaction" },

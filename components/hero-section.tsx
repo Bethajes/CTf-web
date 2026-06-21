@@ -5,7 +5,7 @@ import { ArrowRight, Sparkles, Users, Activity, Layers, ShieldCheck } from "luci
 import { ButtonLink } from "@/components/button-link";
 
 const heroMetrics = [
-  { value: "18,000+", label: "People Served Daily", icon: Users },
+  { value: "3,000+", label: "People Served Daily", icon: Users },
   { value: "99.97%", label: "System Availability", icon: ShieldCheck },
   { value: "14", label: "Enterprise Solutions", icon: Layers },
   { value: "100%", label: "Client Satisfaction", icon: Activity },
