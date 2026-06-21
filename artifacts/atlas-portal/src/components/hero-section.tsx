@@ -49,7 +49,9 @@ function AnimatedMetric({
   const isPlus = display.includes("+");
 
   const formatted = isPercent
-    ? (count / 100).toFixed(2) + "%"
+    ? display.includes(".")
+      ? (count / 100).toFixed(2) + "%"
+      : count + "%"
     : isPlus
     ? count.toLocaleString() + "+"
     : count.toString();
