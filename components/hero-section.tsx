@@ -5,10 +5,10 @@ import { ArrowRight, Sparkles, Users, Activity, Layers, ShieldCheck } from "luci
 import { ButtonLink } from "@/components/button-link";
 
 const heroMetrics = [
-  { value: "50,000+", label: "Users Supported", icon: Users },
-  { value: "99.9%", label: "System Availability", icon: ShieldCheck },
-  { value: "10+", label: "Digital Solutions", icon: Layers },
-  { value: "100%", label: "Customizable Platforms", icon: Activity },
+  { value: "18,000+", label: "People Served Daily", icon: Users },
+  { value: "99.97%", label: "System Availability", icon: ShieldCheck },
+  { value: "14", label: "Enterprise Solutions", icon: Layers },
+  { value: "100%", label: "Client Satisfaction", icon: Activity },
 ];
 
 export function HeroSection() {
@@ -116,9 +116,9 @@ function DashboardPreview() {
         <div className="grid gap-4 lg:grid-cols-[0.7fr_1.3fr]">
           <div className="grid gap-3">
             {[
-              { label: "Active Users", value: "12,847" },
-              { label: "System Health", value: "99.98%" },
-              { label: "Requests/min", value: "4,231" },
+              { label: "Active Users", value: "2,847" },
+              { label: "System Health", value: "99.97%" },
+              { label: "Requests/min", value: "1,247" },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}

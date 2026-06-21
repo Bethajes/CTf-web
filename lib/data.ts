@@ -322,16 +322,16 @@ export const testimonials = [
 ];
 
 export const metrics = [
-  { value: "50,000+", label: "Users Supported" },
-  { value: "99.9%", label: "System Availability" },
-  { value: "10+", label: "Digital Solutions" },
-  { value: "100%", label: "Customizable Platforms" },
+  { value: "18,000+", label: "People Served Daily" },
+  { value: "99.97%", label: "System Availability" },
+  { value: "14", label: "Enterprise Solutions" },
+  { value: "100%", label: "Client Satisfaction" },
 ];
 
 export const clientLogos = ["NOVA", "ORBIT", "AXIOM", "MERIDIAN", "HELIO", "QUANTUM"];
 
 export const heroStats = [
-  { label: "Systems shipped", value: "42" },
+  { label: "Systems shipped", value: "14" },
   { label: "Automations live", value: "180+" },
   { label: "Data events/day", value: "2.4M" },
 ];
