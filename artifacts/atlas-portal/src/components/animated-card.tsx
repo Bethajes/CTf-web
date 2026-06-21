@@ -74,7 +74,7 @@ export function AnimatedCard({
   function onMouseEnter() {
     setHovered(true);
     setSettled(false);
-    timerRef.current = setTimeout(() => setSettled(true), 2000);
+    timerRef.current = setTimeout(() => setSettled(true), 500);
   }
 
   function onMouseLeave() {
