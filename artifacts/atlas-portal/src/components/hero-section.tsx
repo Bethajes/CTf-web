@@ -13,15 +13,15 @@ const heroMetrics = [
 
 export function HeroSection() {
   return (
-    <section className="subtle-grid relative overflow-hidden bg-slate-950 py-20 text-white lg:py-28 dark:bg-black">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/80 to-transparent" />
+    <section className="subtle-grid relative overflow-hidden bg-white py-20 lg:py-28 dark:bg-black">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent dark:via-cyan-300/80" />
       <div className="section-shell">
         <div className="mx-auto max-w-5xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mx-auto mb-5 inline-flex items-center gap-2 rounded-md border border-cyan-300/20 bg-cyan-400/10 px-3 py-2 text-xs font-bold text-cyan-200 shadow-[0_0_28px_rgba(6,182,212,0.2)]"
+            className="mx-auto mb-5 inline-flex items-center gap-2 rounded-md border border-cyan-400/30 bg-cyan-50 px-3 py-2 text-xs font-bold text-cyan-700 dark:border-cyan-300/20 dark:bg-cyan-400/10 dark:text-cyan-200 dark:shadow-[0_0_28px_rgba(6,182,212,0.2)]"
           >
             <Sparkles className="h-4 w-4" />
             Engineering the Future Through Software
@@ -31,7 +31,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl font-black text-white sm:text-6xl lg:text-7xl"
+            className="text-4xl font-black text-slate-900 dark:text-white sm:text-6xl lg:text-7xl"
           >
             Global software engineering for companies building what comes next.
           </motion.h1>
@@ -40,7 +40,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300"
+            className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300"
           >
             We build enterprise software, AI systems, cloud platforms, and digital solutions that help organizations operate smarter and scale faster.
           </motion.p>
@@ -76,13 +76,13 @@ export function HeroSection() {
           {heroMetrics.map((metric) => (
             <div
               key={metric.label}
-              className="rounded-md border border-white/10 bg-white/[0.05] p-5 text-center transition hover:border-cyan-300/30"
+              className="rounded-md border border-slate-200 bg-slate-50 p-5 text-center transition hover:border-cyan-400/40 hover:shadow-sm dark:border-white/10 dark:bg-white/[0.05] dark:hover:border-cyan-300/30"
             >
-              <div className="mx-auto mb-3 grid h-10 w-10 place-items-center rounded-md bg-cyan-400/10 text-cyan-200">
+              <div className="mx-auto mb-3 grid h-10 w-10 place-items-center rounded-md bg-cyan-50 text-cyan-700 dark:bg-cyan-400/10 dark:text-cyan-200">
                 <metric.icon className="h-5 w-5" />
               </div>
-              <div className="text-2xl font-black text-white">{metric.value}</div>
-              <p className="mt-1 text-sm text-slate-400">{metric.label}</p>
+              <div className="text-2xl font-black text-slate-900 dark:text-white">{metric.value}</div>
+              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{metric.label}</p>
             </div>
           ))}
         </motion.div>
@@ -96,7 +96,7 @@ function DashboardPreview() {
 
   return (
     <motion.div
-      className="relative mx-auto w-full max-w-5xl rounded-lg border border-cyan-300/20 bg-neutral-950 p-3 shadow-[0_28px_90px_-36px_rgba(6,182,212,0.5)]"
+      className="relative mx-auto w-full max-w-5xl rounded-lg border border-slate-200 bg-slate-900 p-3 shadow-xl dark:border-cyan-300/20 dark:bg-neutral-950 dark:shadow-[0_28px_90px_-36px_rgba(6,182,212,0.5)]"
       initial={{ opacity: 0, scale: 0.96 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
