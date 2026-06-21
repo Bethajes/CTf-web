@@ -56,6 +56,10 @@ export function Navbar() {
                 {item.label}
               </a>
             ))}
+            <div className="flex items-center justify-between rounded-md px-3 py-2 border-t border-slate-100 dark:border-white/10 mt-1">
+              <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">Theme</span>
+              <ThemeToggle />
+            </div>
             <Link href="/contact" onClick={() => setOpen(false)} className="rounded-md bg-primary px-3 py-3 text-sm font-semibold text-white">
               Book Consultation
             </Link>
